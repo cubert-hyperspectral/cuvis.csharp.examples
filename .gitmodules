@@ -1,0 +1,3 @@
+[submodule "cuvis.csharp"]
+	path = cuvis.csharp
+	url = https://github.com/cubert-hyperspectral/cuvis.csharp.git
