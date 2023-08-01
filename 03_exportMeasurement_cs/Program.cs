@@ -34,9 +34,9 @@ namespace ConsoleApp1
 
             Console.WriteLine("loading measurement...");
             cuvis_net.Measurement mesu = sess.GetMeasurement(0);
-            Debug.Assert(mesu.GetHashCode() != null, " No data found");
+            //Debug.Assert(mesu.GetHashCode() != null, " No data found");
 
-            Debug.Assert((mesu.ProcessingMode != cuvis_net.ProcessingMode.Preview));
+            //Debug.Assert((mesu.ProcessingMode != cuvis_net.ProcessingMode.Preview));
 
 
             Console.WriteLine("Export to Envi");

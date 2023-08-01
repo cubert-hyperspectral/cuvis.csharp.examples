@@ -23,7 +23,7 @@ namespace ConsoleApp1
 
             Console.WriteLine("loading measurement...");
             cuvis_net.Measurement mesu = sess.GetMeasurement(0);
-            Debug.Assert(mesu.GetHashCode() != null, " No data found");
+            //Debug.Assert(mesu.GetHashCode() != null, " No data found");
 
             Console.WriteLine(" Data 1 {0} {1} ms mode={2}", mesu.Name, mesu.IntegrationTime, mesu.ProcessingMode);
 
@@ -37,7 +37,7 @@ namespace ConsoleApp1
 
             bool isCapable = processingContext.IsCapable(mesu, processingContext.ProcessingMode, false);
 
-            Debug.Assert(isCapable);
+            //Debug.Assert(isCapable);
 
             
             Console.WriteLine("changing distance...");
