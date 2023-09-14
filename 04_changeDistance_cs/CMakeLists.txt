@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.20.0)
+cmake_minimum_required(VERSION 3.16.0)
 project(04_changeDistance_cs LANGUAGES CSharp C)
 
 add_executable(04_changeDistance_cs Program.cs)

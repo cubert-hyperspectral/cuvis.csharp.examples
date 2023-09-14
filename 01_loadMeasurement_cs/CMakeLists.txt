@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.20.0)
+cmake_minimum_required(VERSION 3.16.0)
 project(01_loadMeasurement_cs LANGUAGES CSharp C)
 
 add_executable(01_loadMeasurement_cs Program.cs)
