@@ -12,5 +12,5 @@ if(Cuvis_VERSION LESS ${REQUIRED_VERSION})
 endif()
 target_link_libraries(01_loadMeasurement_cs PRIVATE cuvis::csharp)
 set_property(TARGET 01_loadMeasurement_cs
-	PROPERTY VS_DOTNET_REFERENCES "System.Drawing;System.Diagnostics"
+	PROPERTY VS_DOTNET_REFERENCES "System.Drawing"
 )

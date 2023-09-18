@@ -33,8 +33,6 @@ namespace ConsoleApp1
             Console.WriteLine("loading measurement... ");
 
             cuvis_net.Measurement mesu = sess[0];
-            Debug.Assert(mesu.GetHashCode() != null, " No data found");
-
 
             Console.WriteLine("Data 1 " + mesu.Name + "; t=" + mesu.IntegrationTime.ToString() + " ms; mode=" + mesu.ProcessingMode);
 
@@ -45,15 +43,11 @@ namespace ConsoleApp1
             }
             
 
-            Debug.Assert((mesu.ProcessingMode is cuvis_net.ProcessingMode.Raw), " This example requires raw mode");
-
             var cube = (cuvis_net.ImageData<ushort>)(mesu.Data["cube"].Value);
 
             int x = 120;
             int y = 200;
 
-            Debug.Assert(x < cube.Width, "x index exceeds cube width");
-            Debug.Assert(y < cube.Height, "y index exceeds cube height");
 
             Console.WriteLine("lambda [nm]; raw counts [au] ");
 
