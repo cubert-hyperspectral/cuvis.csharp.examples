@@ -21,24 +21,19 @@ namespace ConsoleApp1
 
             Console.WriteLine("loading measurement...");
             var sessMesu = new cuvis_net.SessionFile(args[1]);
-            cuvis_net.Measurement mesu = sessMesu[0];
-            Debug.Assert(mesu.GetHashCode() != null, " No data found");
-            
+            cuvis_net.Measurement mesu = sessMesu[0];        
 
             Console.WriteLine("loading dark...");
             var sessDark = new cuvis_net.SessionFile(args[2]);
             cuvis_net.Measurement dark = sessDark[0];
-            Debug.Assert(dark.GetHashCode() != null, " No data found");
 
             Console.WriteLine("loading white...");
             var sessWhite = new cuvis_net.SessionFile(args[3]);
             cuvis_net.Measurement white = sessWhite[0];
-            Debug.Assert(white.GetHashCode() != null, " No data found");
 
             Console.WriteLine("loading distance...");
             var sessDistance = new cuvis_net.SessionFile(args[4]);
             cuvis_net.Measurement distance = sessDistance[0];
-            Debug.Assert(distance.GetHashCode() != null, " No data found");
 
             Console.WriteLine(" Data 1 {0} {1} ms mode={2} flags={3}", mesu.Name, mesu.IntegrationTime, mesu.ProcessingMode, mesu.MeasurementFlags);
 
