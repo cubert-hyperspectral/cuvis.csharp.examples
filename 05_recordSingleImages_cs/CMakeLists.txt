@@ -12,5 +12,5 @@ if(Cuvis_VERSION LESS ${REQUIRED_VERSION})
 endif()
 target_link_libraries(05_recordSingleImages_cs PRIVATE cuvis::csharp)
 set_property(TARGET 05_recordSingleImages_cs
-	PROPERTY VS_DOTNET_REFERENCES "System.Drawing"
+	PROPERTY VS_DOTNET_REFERENCES "System.Drawing;System.Diagnostics"
 )

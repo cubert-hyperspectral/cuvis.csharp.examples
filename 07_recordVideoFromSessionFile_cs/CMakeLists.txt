@@ -12,5 +12,5 @@ if(Cuvis_VERSION LESS ${REQUIRED_VERSION})
 endif()
 target_link_libraries(07_recordVideoFromSessionFile_cs PRIVATE cuvis::csharp)
 set_property(TARGET 07_recordVideoFromSessionFile_cs
-	PROPERTY VS_DOTNET_REFERENCES "System.Drawing"
+	PROPERTY VS_DOTNET_REFERENCES "System.Drawing;System.Diagnostics"
 )
