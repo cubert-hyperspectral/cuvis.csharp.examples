@@ -25,8 +25,12 @@ namespace ConsoleApp1
             var acquistionContext = new cuvis_net.AcquistionContext(calib);
 
             Console.WriteLine("Prepare saving of measurements...");
-            var general_settings = new cuvis_net.GeneralExportSettings(args[2], "all", 1.0, 0.0, cuvis_net.PanSharpeningInterpolationType.NearestNeighbour, cuvis_net.PanSharpeningAlgorithm.Noop, false, false, false, 1);
-            var sa = cuvis_net.CubertSaveArgs.Default;
+            var general_settings = cuvis_net.GeneralExportSettings.Default;
+            general_settings.PanSharpeningAlgorithmType = cuvis_net.PanSharpeningAlgorithm.Noop;
+            general_settings.BlendOpacity = 1.0;
+            general_settings.ExportDir = args[2];
+
+            var sa = cuvis_net.SaveArgs.Default;
             sa.AllowDrop = true;
             sa.AllowOverride = true;
             sa.AllowSessionFile = true;
@@ -56,13 +60,11 @@ namespace ConsoleApp1
             }
 
             Console.WriteLine("components:");
-            int count = acquistionContext.ComponentCount;
-            for (int i = 0; i < count; i++)
+            foreach (var component in acquistionContext.Components)
             {
-                cuvis_net.ComponentInfo info = acquistionContext.GetComponentInfo(i);
-                bool isOnline = acquistionContext.GetOnline(i);
+                cuvis_net.ComponentInfo info = component.Info;
 
-                Console.WriteLine(" {0} is {1}", info.DisplayName, (isOnline ? "online" : "offline"));
+                Console.WriteLine(" {0} is {1}", info.DisplayName, (component.Online ? "online" : "offline"));
             }
 
             Console.WriteLine("initializing hardware...");
@@ -81,7 +83,7 @@ namespace ConsoleApp1
                     if (acquistionContext.HasNextMeasurement)
                     {
                         break;
-                        
+
                     }
                     System.Threading.Thread.Sleep(1);
                 } while (keepRunning != 0);

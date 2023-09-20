@@ -22,8 +22,7 @@ namespace ConsoleApp1
             var sess = new cuvis_net.SessionFile(args[1]);
 
             Console.WriteLine("loading measurement...");
-            cuvis_net.Measurement mesu = sess.GetMeasurement(0);
-            //Debug.Assert(mesu.GetHashCode() != null, " No data found");
+            cuvis_net.Measurement mesu = sess[0];
 
             Console.WriteLine(" Data 1 {0} {1} ms mode={2}", mesu.Name, mesu.IntegrationTime, mesu.ProcessingMode);
 
@@ -37,14 +36,12 @@ namespace ConsoleApp1
 
             bool isCapable = processingContext.IsCapable(mesu, processingContext.ProcessingMode, false);
 
-            //Debug.Assert(isCapable);
-
             
             Console.WriteLine("changing distance...");
             processingContext.Apply(mesu);
 
             Console.WriteLine("saving...");
-            var sa = cuvis_net.CubertSaveArgs.Default;
+            var sa = cuvis_net.SaveArgs.Default;
             sa.AllowSessionFile = true;
             sa.AllowOverride = true;
             mesu.Save(args[3], sa);

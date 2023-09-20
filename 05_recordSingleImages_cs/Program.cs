@@ -24,7 +24,7 @@ namespace ConsoleApp1
 
             var general_settings = new cuvis_net.GeneralExportSettings(args[3], "all", 1.0, 0.0, cuvis_net.PanSharpeningInterpolationType.NearestNeighbour, cuvis_net.PanSharpeningAlgorithm.Noop, false, false, false, 1);
 
-            var sa = cuvis_net.CubertSaveArgs.Default;
+            var sa = cuvis_net.SaveArgs.Default;
             sa.AllowDrop= true;
             sa.AllowOverride = true;
             sa.AllowSessionFile = true;
