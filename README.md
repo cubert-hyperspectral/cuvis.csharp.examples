@@ -7,7 +7,7 @@
 To get the exampels running, first set up a project directory, clone this git repository and initialize its submodule(s).
 
 ```
-git submodule update --init
+git submodule update --init --recursive
 ```
 
 Then, you need to install the Cuvis C SDK (see [here](https://cloud.cubert-gmbh.de/index.php/s/kKVtx0x2fmYqVgx)), as explained for the C# wrapper [here](https://github.com/cubert-hyperspectral/cuvis.csharp).
