@@ -30,7 +30,7 @@ namespace ConsoleApp1
             var processingContext = new cuvis_net.ProcessingContext(sess);
 
             Console.WriteLine("setting distance..");
-            processingContext.CalcDistance(int.Parse(args[2]));
+            processingContext.CalcDistance(int.Parse(args[2])); //in mm
 
             processingContext.ProcessingMode = cuvis_net.ProcessingMode.Raw;
 
