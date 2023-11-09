@@ -52,7 +52,7 @@ namespace ConsoleApp1
             }
 
 
-            acquistionContext.IntegrationTime = int.Parse(args[3]);
+            acquistionContext.IntegrationTime = int.Parse(args[3]); //in ms
             acquistionContext.OperationMode = cuvis_net.OperationMode.Software;
 
             Console.WriteLine("Start recording now");
