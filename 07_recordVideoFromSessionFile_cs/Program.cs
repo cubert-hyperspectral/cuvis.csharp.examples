@@ -73,7 +73,7 @@ namespace ConsoleApp1
             Console.WriteLine("initializing hardware...");
             acquistionContext.SessionData = new cuvis_net.SessionData("video", 0, 0);
             acquistionContext.FPS = int.Parse(args[5]);
-            acquistionContext.IntegrationTime = int.Parse(args[3]);
+            acquistionContext.IntegrationTime = int.Parse(args[3]); //in ms
             acquistionContext.OperationMode = cuvis_net.OperationMode.Internal;
             acquistionContext.AutoExposure = int.Parse(args[4]) == 0;
             acquistionContext.Continuous = true;
