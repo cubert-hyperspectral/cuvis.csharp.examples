@@ -78,9 +78,9 @@ namespace ConsoleApp1
                     Console.WriteLine("failed");
                 }
             }
-            Console.WriteLine("done. cleaning up");
 
-
+            cuvis_net.General.Shutdown();
+            Console.WriteLine("finished.");
         }
     }
 }
