@@ -99,8 +99,9 @@ namespace ConsoleApp1
                     mesu.Dispose();
                 }
             }
+
+            cuvis_net.General.Shutdown();
             Console.WriteLine("finished.");
         }
-
     }
 }

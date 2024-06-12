@@ -72,8 +72,9 @@ namespace ConsoleApp1
             var view_export_settings = new cuvis_net.ViewExportSettings(userpluginCai);
             var viewExporter = new cuvis_net.ViewExporter(general_settings_view, view_export_settings);
             viewExporter.Apply(mesu);
-            Console.WriteLine("finished.");
 
+            cuvis_net.General.Shutdown();
+            Console.WriteLine("finished.");
         }
     }
 }

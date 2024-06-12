@@ -45,9 +45,9 @@ namespace ConsoleApp1
             sa.AllowSessionFile = true;
             sa.AllowOverride = true;
             mesu.Save(args[3], sa);
+
+            cuvis_net.General.Shutdown();
             Console.WriteLine("finished.");
-
-
         }
     }
 }

@@ -60,6 +60,7 @@ namespace ConsoleApp1
                 
             }
 
+            cuvis_net.General.Shutdown();
             Console.WriteLine("finished.");
 
         }
