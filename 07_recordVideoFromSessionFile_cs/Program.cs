@@ -44,20 +44,8 @@ namespace ConsoleApp1
             var cubeExporter = new cuvis_net.CubeExporter(general_settings, sa);
 
             Console.WriteLine("Waiting for camera to become online");
-            for (; ; )
+            while (!acquistionContext.Ready)
             {
-                var state = acquistionContext.State;
-                if (state == cuvis_net.HardwareState.Online)
-                {
-                    Console.WriteLine("Camera online");
-                    break;
-                }
-                if (state == cuvis_net.HardwareState.PartiallyOnline)
-                {
-                    Console.WriteLine("Camera partially online");
-                    break;
-                }
-
                 System.Threading.Thread.Sleep(1000);
                 Console.Write(".");
             }

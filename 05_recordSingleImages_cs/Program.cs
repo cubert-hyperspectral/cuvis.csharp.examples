@@ -22,8 +22,9 @@ namespace ConsoleApp1
             var processingContext = new cuvis_net.ProcessingContext(calibration);
             var acquistionContext = new cuvis_net.AcquistionContext(calibration);
 
-            var general_settings = new cuvis_net.GeneralExportSettings(args[3], "all", 1, 0.0, cuvis_net.PanSharpeningInterpolationType.NearestNeighbour, cuvis_net.PanSharpeningAlgorithm.Noop, false, false, false, 1);
-
+            var general_settings = cuvis_net.GeneralExportSettings.Default;
+            general_settings.ExportDir = args[2];
+            
             var sa = cuvis_net.SaveArgs.Default;
             sa.AllowDrop= true;
             sa.AllowOverride = true;
@@ -32,25 +33,11 @@ namespace ConsoleApp1
             var cubeExporter = new cuvis_net.CubeExporter(general_settings, sa);
 
             Console.WriteLine("Waiting for camera to become online");
-            for (; ; )
+            while (!acquistionContext.Ready)
             {
-                var state = acquistionContext.State;
-                if (state == cuvis_net.HardwareState.Online)
-                {
-                    Console.WriteLine("Camera online");
-                    break;
-                }
-                if (state == cuvis_net.HardwareState.PartiallyOnline)
-                {
-                    Console.WriteLine("Camera partially online");
-                    break;
-                }
-
                 System.Threading.Thread.Sleep(1000);
                 Console.Write(".");
-                
             }
-
 
             acquistionContext.IntegrationTime = int.Parse(args[3]); //in ms
             acquistionContext.OperationMode = cuvis_net.OperationMode.Software;
