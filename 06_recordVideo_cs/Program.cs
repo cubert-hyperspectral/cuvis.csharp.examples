@@ -1,5 +1,6 @@
 using System;
 using System.Drawing;
+using System.IO;
 
 namespace ConsoleApp1
 {
@@ -19,7 +20,24 @@ namespace ConsoleApp1
             cuvis_net.General.Init(args[0]);
 
             Console.WriteLine("Loading calibration...");
-            var calib = new cuvis_net.Calibration(args[1]);
+            
+
+            cuvis_net.Calibration calib;
+
+            if (Directory.Exists(args[1]))
+            {
+                calib = new cuvis_net.Calibration(args[1]);
+            }
+            else if (File.Exists(args[1]) && Path.GetExtension(args[1]).ToLower() == ".cu3c")
+            {
+                Console.WriteLine("Using .cu3c file as calibration instead of factory dir...");
+                var calibFile = new cuvis_net.SessionFile(args[1]);
+                calib = new cuvis_net.Calibration(calibFile);
+            }
+            else
+            {
+                throw new Exception("Unrecognized file format.");
+            }
 
             Console.WriteLine("Loading acquisition context...");
             var acquistionContext = new cuvis_net.AcquistionContext(calib);
