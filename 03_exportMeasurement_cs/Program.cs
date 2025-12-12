@@ -14,8 +14,6 @@ namespace ConsoleApp1
             }
 
             var general_settings = cuvis_net.GeneralExportSettings.Default;
-            general_settings.PanSharpeningAlgorithmType = cuvis_net.PanSharpeningAlgorithm.Noop;
-            general_settings.BlendOpacity = 1.0;
 
             var general_settings_envi = general_settings;
             general_settings_envi.ExportDir = "/envi";

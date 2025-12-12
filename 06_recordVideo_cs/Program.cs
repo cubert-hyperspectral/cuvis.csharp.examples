@@ -44,8 +44,6 @@ namespace ConsoleApp1
 
             Console.WriteLine("Prepare saving of measurements...");
             var general_settings = cuvis_net.GeneralExportSettings.Default;
-            general_settings.PanSharpeningAlgorithmType = cuvis_net.PanSharpeningAlgorithm.Noop;
-            general_settings.BlendOpacity = 1.0;
             general_settings.ExportDir = args[2];
 
             var sa = cuvis_net.SaveArgs.Default;
