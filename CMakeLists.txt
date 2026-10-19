@@ -1,5 +1,9 @@
 cmake_minimum_required(VERSION 3.20.0)
-project(CUVIS.Csharp.EXMPLES CSharp C)
+project(CUVIS.Csharp.EXMPLES CSharp C CXX)
+
+# cuvis_csil is x64 only, an AnyCPU exe would run as a 32 bit process and fail to load it
+set(CMAKE_VS_GLOBALS "PlatformTarget=x64")
+
 add_subdirectory(01_loadMeasurement_cs)
 add_subdirectory(02_reprocessMeasurement_cs)
 add_subdirectory(03_exportMeasurement_cs)
