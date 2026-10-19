@@ -13,21 +13,18 @@ namespace ConsoleApp1
                 throw new ArgumentException("Invalid number of cli arguments");
             }
 
-            var general_settings = cuvis_net.GeneralExportSettings.Default;
+            cuvis_net.GeneralExportSettings ExportTo(string subdir)
+            {
+                var settings = cuvis_net.GeneralExportSettings.Default;
+                settings.ExportDir = Path.Combine(args[3], subdir);
+                return settings;
+            }
 
-            var general_settings_envi = general_settings;
-            general_settings_envi.ExportDir = "/envi";
+            var general_settings_envi = ExportTo("envi");
+            var general_settings_single = ExportTo("single");
+            var general_settings_multi = ExportTo("multi");
+            var general_settings_view = ExportTo("view");
 
-            var general_settings_single = general_settings;
-            general_settings_single.ExportDir = "/single";
-
-            var general_settings_multi = general_settings;
-            general_settings_multi.ExportDir = "/multi";
-
-            var general_settings_view = general_settings;
-            general_settings_view.ExportDir = "/view";
-
-           
             Console.WriteLine("Example 03 export measurement");
 
             Console.WriteLine("loading user settings...");
